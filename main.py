@@ -26,9 +26,12 @@ def pagina_inicial():
         senha = request.form['senha']
         conn = get_db_connection()
         conn.execute('INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)', (nome, email, senha))
+
+        usuario = conn.execute('SELECT * FROM usuarios WHERE email = ? AND senha = ?', (email, senha)).fetchone()
+        session['id_usuario'] = usuario['id']
         conn.commit()
         conn.close()
-        return "<h1>Cadastrado!</h1> <a href='/login'>Fazer Login</a>"
+        return redirect(url_for('dashboard'))
     return render_template("Cadastro/cadastro.html")
 
 @app.route('/login', methods=['GET', 'POST'])
