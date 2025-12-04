@@ -17,7 +17,6 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-# ... (Rotas de Cadastro e Login continuam iguais) ...
 @app.route('/', methods=['GET', 'POST'])
 def pagina_inicial():
     if request.method == 'POST':
@@ -32,7 +31,7 @@ def pagina_inicial():
         conn.commit()
         conn.close()
         return redirect(url_for('dashboard'))
-    return render_template("Cadastro/cadastro.html")
+    return render_template("Login/login.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
