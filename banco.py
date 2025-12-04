@@ -4,12 +4,12 @@ conexao = sqlite3.connect("banco.db")
 cursor = conexao.cursor()
 
 
-#cursor.execute("""CREATE TABLE usuarios (
-#       id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-#        nome varchar(100) NOT NULL,
-#       email varchar(100) NOT NULL,
-#        senha varchar(10) NOT NULL
-#)""")
+cursor.execute("""CREATE TABLE usuarios (
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        nome varchar(100) NOT NULL,
+       email varchar(100) NOT NULL,
+        senha varchar(10) NOT NULL
+)""")
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS sugestoes (

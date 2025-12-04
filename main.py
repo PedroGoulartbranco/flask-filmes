@@ -16,7 +16,6 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-# --- Rota 1: Cadastro Seguro ---
 @app.route('/', methods=['GET', 'POST'])
 def pagina_inicial():
     if request.method == 'POST':
